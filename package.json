@@ -1,0 +1,25 @@
+{
+  "name": "uno",
+  "version": "1.0.0",
+  "description": "A socket-enabled multiplayer game of UNO by Mattel",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WolfElkan/uno.git"
+  },
+  "author": "Wolf Elkan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WolfElkan/uno/issues"
+  },
+  "homepage": "https://github.com/WolfElkan/uno#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^14.4.0",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.3.0"
+  }
+}
