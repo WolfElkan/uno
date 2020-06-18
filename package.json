@@ -4,7 +4,8 @@
   "description": "A socket-enabled multiplayer game of UNO by Mattel",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",

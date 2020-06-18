@@ -11,13 +11,20 @@ var socket = server.socket
 
 // Run this code for each new socket connection
 
+var Game = require('./public/game')
+
+var game = new Game()
+
 io.on('connection', function(socket) {
+	// console.log(game.draw(7))
+	// console.log(game.draw_pile.length)
 	console.log("Connected")
 
-	// When `hack` message recieved:
-	socket.on('socket', function(data) {
+	socket.emit('deal',game.draw(7))
+
+	socket.on('say', function(data) {
 		console.log(data)
-		socket.emit('Data recieved: ' + data)
+		socket.emit('echo', 'Data recieved: ' + data)
 	})
 
 });
