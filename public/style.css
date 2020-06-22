@@ -1,7 +1,51 @@
-#table {
-	height: 636px;
+:root {
+	--red:    #ed1d25;
+	--yellow: #fede00;
+	--green:  #02a650;
+	--blue:   #0095db;
+	--wild:   #000000;
 }
 
-img {
+table {
 	height: 100px;
+}
+
+body {
+	background-color: #e0b88e;
+}
+
+img, #draw .card, #play .card {
+	height: 150px;
+	width: 96px;
+}
+
+td {
+	height: 100;
+	/*background-color: var(--red);*/
+	/*background-color: red;*/
+}
+
+svg {
+	/*width: 100%;*/
+	display: inline-block;
+	background-color: blue;
+}
+
+#draw, #play {
+	display: inline-block;
+	/*width: 64px;*/
+	/*height: 100px;*/
+	padding: 4px;
+	background-color: gray;
+	text-align: right;
+}
+
+#draw .card, #play .card {
+	/*display: inline-block;*/
+	/*padding: 4px;*/
+	/*background-color: gray;*/
+}
+
+.nCards {
+	vertical-align: text-bottom;
 }
