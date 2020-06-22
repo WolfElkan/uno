@@ -8,13 +8,13 @@ function join_game(username) {
 	socket.emit('join_game', {'username':username})
 }
 
-// function start_game() {
-// 	socket.emit('start_game')
-// }
-
-function play(card) {
-	socket.emit('play', card)
+function start_game() {
+	socket.emit('start_game')
 }
+
+// function play(card) {
+// 	socket.emit('play', card)
+// }
 
 socket.emit('snapshot')
 
