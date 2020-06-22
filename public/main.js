@@ -12,9 +12,9 @@ function start_game() {
 	socket.emit('start_game')
 }
 
-// function play(card) {
-// 	socket.emit('play', card)
-// }
+function play(card) {
+	socket.emit('play', card)
+}
 
 socket.emit('snapshot')
 
@@ -44,4 +44,5 @@ socket.on('snapshot', function(data) {
 	set_play_pile(data.play.nCards, new Card(data.play.topCard))
 	// console.log(data)
 	set_players(data.players)
+	console.log(data)
 })

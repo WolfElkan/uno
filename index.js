@@ -12,6 +12,7 @@ var socket = server.socket
 // Run this code for each new socket connection
 
 var Game = require('./public/game')
+var Card = Game.Card
 
 var game = new Game()
 
@@ -39,6 +40,11 @@ io.on('connection', function(socket) {
 		// Object.assign(socket2,socket)
 		// socket2.emit = undefined
 		// socket.emit('echo', socket2)
+	})
+
+	socket.on('play', function(card) {
+		card = new Card(card)
+		console.log(card)
 	})
 
 	socket.on('start_game', function() {

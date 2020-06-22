@@ -18,13 +18,20 @@ const nums = [
 ]
 
 class Card {
-	constructor(c, v) {
-		if (typeof(c) == "object" && !v) {
+	constructor(c, v, s) {
+		if (type(c) && type(c).name == 'HTMLImageElement') {
+			var cvs = c.id
+			this.c = cvs[0]
+			this.v = cvs[1]
+			this.s = cvs[2]
+		} else if (typeof(c) == "object" && !v) {
 			this.c = c.c
 			this.v = String(c.v)
+			this.s = c.s
 		} else {
 			this.c = c
 			this.v = String(v)
+			this.s = s
 		}
 	}
 	color() {
@@ -52,6 +59,9 @@ class Card {
 	name() {
 		return this.color() + this.value()
 	}
+	cvs() {
+		return this.c + this.v + this.s
+	}
 	image() {
 		return `images/CardImages/${this.c}${this.v}.png`
 	}
@@ -74,19 +84,19 @@ class Card {
 
 	for (var cnum in colors) {
 		var c = colors[cnum]
-		deck.push(new Card(c, 0))
+		deck.push(new Card(c, 0, 0))
 		for (var v = 1; v <= 9; v++) {
-			deck.push(new Card(c, v))
-			deck.push(new Card(c, v))
+			deck.push(new Card(c, v, 0))
+			deck.push(new Card(c, v, 1))
 		}
 		for (var i = 0; i < action.length; i++) {
-			deck.push(new Card(c, action[i]))
-			deck.push(new Card(c, action[i]))
+			deck.push(new Card(c, action[i], 0))
+			deck.push(new Card(c, action[i], 1))
 		}
 	}
 	for (var i = 0; i < 4; i++) {
-		deck.push(new Card('W','I'))
-		deck.push(new Card('W','D'))
+		deck.push(new Card('W','I', i))
+		deck.push(new Card('W','D', i))
 	}
 
 	return shuffle(deck)
@@ -125,12 +135,21 @@ class Player {
 	}
 }
 
+// function shuffle(arr) {
+// 	if (arr.length == 1) {return arr}
+// 	var index = Math.floor(Math.random() * arr.length) + 1
+// 	var back = arr.splice(index)
+// 	var selected = arr.pop()
+// 	arr = arr.concat(back)
+// 	arr = shuffle(arr)
+// 	arr.push(selected)
+// 	return arr
+// }
+
 function shuffle(arr) {
 	if (arr.length == 1) {return arr}
-	var index = Math.floor(Math.random() * arr.length) + 1
-	var back = arr.splice(index)
-	var selected = arr.pop()
-	arr = arr.concat(back)
+	var index = Math.floor(Math.random() * arr.length)
+	var selected = arr.splice(index, 1)[0]
 	arr = shuffle(arr)
 	arr.push(selected)
 	return arr
